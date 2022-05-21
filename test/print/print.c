@@ -1,27 +1,22 @@
 #include <stdio.h>
 
-void print(int n)
+void print(unsigned int n)
 {
-  if (n < 0)
+  if (n > 1)
     {
-      putchar('-');
-      n = -n;
-    }
-  if (n/10)
-    {
-      print(n/10);
+      print(n/2);
     }
 
-  putchar((n % 10) + '0');
-  putchar('\n');
+  printf("%d", n % 2);
+  //  putchar('\n');
 }
 
 int main(void)
 {
-  int n;
-  n = 7656453;
   
-  print(n);
-  printf('\n');
+  print(0);
+  printf("\n");
+  printf("%d\n", 0765434);
+  printf("%i\n", -0765434);
   return (0);
 }

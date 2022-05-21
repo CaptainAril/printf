@@ -15,6 +15,15 @@ void printnumber(int n)
     }
   _putchar(n%10 + '0');
 }
+void print_bin(unsigned int n)
+{
+  if (n > 1)
+    {
+      print_bin(n/2);
+    }
+
+  _printf("%d", n % 2);
+}
 
 int _printf(const char *format, ...)
 {
@@ -60,6 +69,18 @@ int _printf(const char *format, ...)
 	      printnumber(num);
 	      i++;
 	    }
+	  else if (format[i+1] == 'i')
+	    {
+	      num = va_arg(args, int);
+	      printnumber(num);
+	      i++;
+	    }
+	  else if (format[i+1] == 'b')
+	    {
+	      /*  bin = va_arg(args, unsigned int);*/
+	      print_bin(va_arg(args, unsigned int));
+	      i++;
+	    }
 	}
       else
 	{
@@ -72,4 +93,3 @@ int _printf(const char *format, ...)
   va_end(args);
   return (char_printed);
 }
-
