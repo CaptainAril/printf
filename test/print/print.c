@@ -13,6 +13,7 @@ void print(int n)
     }
 
   putchar((n % 10) + '0');
+  putchar('\n');
 }
 
 int main(void)
@@ -21,5 +22,6 @@ int main(void)
   n = 7656453;
   
   print(n);
+  printf('\n');
   return (0);
 }

@@ -12,8 +12,8 @@ int main(void)
   _printf("%% testing %% %c, %% testing %% %s\n", 'a', "Oops, too many %s");
   printf("%% testing %% %c, %% testing %% %s\n", 'a', "Oops, too many %s");
 
-  _printf("Today's date is: %d\n", -2);
-  printf("Today's date is: %d/%d/%d\n", 20, 05, 2022);
+  _printf("Today's date is: %d/%d/%d\n", 21, 05, 2022);
+  printf("Today's date is: %d/%d/%d\n", 21, 05, 2022);
 
   return (0);
 }

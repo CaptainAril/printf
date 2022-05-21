@@ -9,23 +9,18 @@ void printnumber(int n)
       _putchar('-');
       n = -n;
     }
-  if (n == 0)
+  if (n/10)
     {
-      _putchar('0');
-      if (n/10)
-	{
-	  printnumber(n/10);
-	}
-      _putchar(n%10 + '0');
+      printnumber(n/10);
     }
+  _putchar(n%10 + '0');
 }
 
 int _printf(const char *format, ...)
 {
   va_list args;
   char *str;
-  int char_printed, i, j;
-  int *num;
+  int char_printed, i, j, num;
   char_printed = 0;
   i = 0;
   str = NULL;
@@ -61,13 +56,9 @@ int _printf(const char *format, ...)
 	    }
 	  else if (format[i+1] == 'd')
 	    {
-	      num = va_arg(args, int *);
-	      j = 0;
-	      while (num[j] != '\0')
-		{
-		  _putchar(num[j]);
-		  j++;
-		}
+	      num = va_arg(args, int);
+	      printnumber(num);
+	      i++;
 	    }
 	}
       else
