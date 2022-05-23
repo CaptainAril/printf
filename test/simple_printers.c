@@ -15,7 +15,7 @@ int print_rev(va_list ap, params_t *params)
 
 	(void)params;
 	if (!s)
-		s = "(null)";
+		s = NULL_STRING;
 
 	while (s[i])
 		i++;

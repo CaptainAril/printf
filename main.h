@@ -41,7 +41,7 @@ typedef struct parameters
 	unsigned int unsign;
 
 	unsigned int plus_flag;
-	unsigned int space_flag;		
+	unsigned int space_flag;
 	unsigned int hashtag_flag;
 	unsigned int zero_flag;
 	unsigned int minus_flag;

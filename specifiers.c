@@ -21,7 +21,7 @@ int (*get_print(char s))(va_list ap, params_t *params)
 		{"X", print_HEX},
 		{"p", print_address},
 		{"S", print_S},
-/*		{"r", print_rev},*/
+		{"r", print_rev},
 		{"R", print_rot13},
 		{NULL, NULL}
 	};
