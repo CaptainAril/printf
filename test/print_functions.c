@@ -1,5 +1,5 @@
 #include "main.h"
-77;30502;0c
+
 /**
  * print_char - prints character
  * @ap: argument pointer

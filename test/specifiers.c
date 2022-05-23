@@ -1,14 +1,14 @@
 #include "main.h"
-77;30502;0c
+
 /**
  * get_specifiers- finds the format func
  * @s: the format string
  *
  * Return: the number of bytes printed
  */
-int (*get_specifier(char *s))(va_list ap, params_t *params)
-{
-	specifier_t specifiers[] = {
+
+int (*get_print(char s))(va_list ap, params_t *params)
+{	specifier_t specifiers[] = {
 		{"c", print_char},
 		{"d", print_int},
 		{"i", print_int},
@@ -21,15 +21,15 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 		{"X", print_HEX},
 		{"p", print_address},
 		{"S", print_S},
-		{"r", print_rev},
-		{"R", print_rot13},
+		/*	{"r", print_rev},
+			{"R", print_rot13}, */
 		{NULL, NULL}
 	};
 	int i = 0;
 
 	while (specifiers[i].specifier)
 	{
-		if (*s == specifiers[i].specifier[0])
+		if (s == specifiers[i].specifier[0])
 		{
 			return (specifiers[i].f);
 		}
@@ -39,34 +39,17 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 }
 
 /**
- * get_print_func - finds the format func
- * @s: the format string
- * @ap: argument pointer
- * @params: the parameters struct
- *
- * Return: the number of bytes printed
- */
-int get_print_func(char *s, va_list ap, params_t *params)
-{
-	int (*f)(va_list, params_t *) = get_specifier(s);
-
-	if (f)
-		return (f(ap, params));
-	return (0);
-}
-
-/**
  * get_flag - finds the flag func
  * @s: the format string
  * @params: the parameters struct
  *
  * Return: if flag was valid
  */
-int get_flag(char *s, params_t *params)
+int get_flag(char s, params_t *params)
 {
 	int i = 0;
 
-	switch (*s)
+	switch (s)
 	{
 		case '+':
 			i = params->plus_flag = 1;
