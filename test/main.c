@@ -1,24 +1,44 @@
-#include "main.h"
+#include <limits.h>
 #include <stdio.h>
+#include "main.h"
 
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
 int main(void)
 {
-  _printf("Hello World %c 2022\n", '-');
-  printf("Hello World %c 2022\n", '-');
+	int len;
+	int len2;
+	unsigned int ui;
+	void *addr;
 
-  _printf("My name is %s\n", "John");
-  printf("My name is %s\n", "John");
-
-  _printf("%% testing %% %c, %% testing %% %s\n", 'a', "Oops, too many %s");
-  printf("%% testing %% %c, %% testing %% %s\n", 'a', "Oops, too many %s");
-
-  _printf("Today's date is: %d/%d/%d\n", 21, 05, 2022);
-  printf("Today's date is: %d/%d/%d\n", 21, 05, 2022);
-
-  _printf("A %i times I have felt like giving up; A %d times I never did\n", 100, 100);
-  printf("A %i times I have felt like giving up; A %d times I never did\n", 100, 100);
-
-  _printf("%d in base two (binary) is: %b\n", 11, 11);
-
-  return (0);
+	len = _printf("Let's try to printf a simple sentence.\n");
+	len2 = printf("Let's try to printf a simple sentence.\n");
+	ui = (unsigned int)INT_MAX + 1024;
+	addr = (void *)0x7ffe637541f0;
+	_printf("Length:[%d, %i]\n", len, len);
+	printf("Length:[%d, %i]\n", len2, len2);
+	_printf("Negative:[%d]\n", -762534);
+	printf("Negative:[%d]\n", -762534);
+	_printf("Unsigned:[%u]\n", ui);
+	printf("Unsigned:[%u]\n", ui);
+	_printf("Unsigned octal:[%o]\n", ui);
+	printf("Unsigned octal:[%o]\n", ui);
+	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+	_printf("Character:[%c]\n", 'H');
+	printf("Character:[%c]\n", 'H');
+	_printf("String:[%s]\n", "I am a string !");
+	printf("String:[%s]\n", "I am a string !");
+	_printf("Address:[%p]\n", addr);
+	printf("Address:[%p]\n", addr);
+	len = _printf("Percent:[%%]\n");
+	len2 = printf("Percent:[%%]\n");
+	_printf("Len:[%d]\n", len);
+	printf("Len:[%d]\n", len2);
+	_printf("Unknown:[%r]\n");
+/*	printf("Unknown:[%r]\n");*/
+	return (0);
 }
